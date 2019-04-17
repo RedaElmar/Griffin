@@ -2,10 +2,8 @@
 ###################################################
  """coloration algorithm"""                      ##
                           """Reda EL MARHOUCH""" ##
+#                    Griffin                     ##
 ###################################################
-
-
-
 def create_mat_dict(N):
     M = [ [0 for j in range(N)] for i in range(N) ]
     D={}
