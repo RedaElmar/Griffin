@@ -1,15 +1,14 @@
-
 ###################################################
- """coloration algorithm"""                      ##
-                          """Reda EL MARHOUCH""" ##
+#"""coloration algorithm"""                      ##
+#                         """Reda EL MARHOUCH""" ##
 #                    Griffin                     ##
 ###################################################
 def create_mat_dict(N):
     M = [ [0 for j in range(N)] for i in range(N) ]
     D={}
-    print('votre graphe comporte',N,' sommets nommés', Names1)
+    print('your graph contains',N,'vertex', Names1)
     for i in range(len(Names1)):
-        x=input( 'entrer les adjacents de  '+Names1[i]+':  ')
+        x=input( 'input adjacent vertices of '+Names1[i]+':  ')
         L=list(x.upper())
         D[Names1[i]]=L
         for elt in L:
@@ -72,15 +71,18 @@ def color(M):
     return coloration
 ###############################################
 def showcolors(M):
+
     M=color(M)
+    global ch
     ch=len(M)
     for e in M:
-        print ('\n\t-les sommets ',e,' sont :',colors.pop(0))
-    print('\n\tle nombre chromatique est <=',ch)
+        print ('\n\t-vertices ',e,' are  :',colors.pop(0))
+    print('\n\t The chromatic number (the smallest number of colors needed to color the vertices)  is <=',ch)
+    
 ###############################################
 def find_cliques(P=[], R=[], X=[]):
         if len(R) == 0 and len(X) == 0:
-                print ('Cest une clique:', P)
+                print ('is a clique:', P)
                 global p
                 if len(P)>p:
                     p=len(P)
@@ -96,19 +98,21 @@ def find_cliques(P=[], R=[], X=[]):
         return
 
 ###############################################
-N=int(input("Entrez le nombre de sommets N= "))
+N=int(input("how many vertices in your graph ?"))
 colors=["Red","Blue","Green","Yellow","Pink","Orange","Purple","Cyan","White","Black"]
 Names0='ABCDEFGHIJKLMNOPQRSTUVWXYZ' 
 Names1=list(Names0[:N])
 F=create_mat_dict(N)
 M=F[0]
 D=F[1]
-print("\n\nvotre matrice:")
+print("\n\nyour matrix:")
 visualize_mat(M)
-print("\n\nsommets tries:")
+print("\n\nsorted vertices:")
 sort= sort_sommets(M)
 print('\t\t',S)
 print(showcolors(M))
 p=0
 find_cliques(R=Names1)
-print('\n\tle nombre chromatique est >= ',p)
+print('\n\tchromatic number is >= ',p)
+if p==ch:
+      print('\n\t------------> then the chromatic number is = ',p)
