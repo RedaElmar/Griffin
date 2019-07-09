@@ -1,3 +1,9 @@
+###################################################
+#"""WWS - Weather Web Scrapper"""                ##
+#                         """Reda EL MARHOUCH""" ##
+#                    Griffin                     ##
+###################################################
+
 import pandas
 import requests
 from bs4 import BeautifulSoup
